@@ -1,0 +1,2 @@
+Prueba de salida estándar
+Segunda linea de prueba
