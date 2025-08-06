@@ -1,0 +1,11 @@
+# REPORTE DE ANÁLISIS BIOMÉTRICO
+
+## Resumen de la Cadena de Bloques
+- Cantidad total de bloques: 60
+- Número de bloques con alertas: 0
+- Estado de integridad: CORRECTA
+
+## Promedios Generales de la Prueba de Esfuerzo
+- Promedio general de Frecuencia Cardíaca (media): 113.26 ppm
+- Promedio general de Presión Sistólica (media): 146.76 mmHg
+- Promedio general de Saturación de Oxígeno (media): 94.20 %
