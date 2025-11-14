@@ -2,6 +2,10 @@ from playwright.sync_api import Page
 import base64
 
 def generate_screenshot(page: Page) -> str:
+    """
+    Toma una captura de pantalla de la página ya cargada.
+    Devuelve la imagen PNG como un string base64.
+    """
     print("Worker: Generando screenshot...")
     try:
         # ss de la página completa

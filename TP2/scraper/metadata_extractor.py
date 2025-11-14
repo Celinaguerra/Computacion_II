@@ -1,6 +1,9 @@
 from bs4 import BeautifulSoup
 
 def extract_metadata(soup: BeautifulSoup) -> dict:
+    """
+    Extrae meta tags relevantes (description, keywords, Open Graph).
+    """
     metas = {}
     
     # Description y keywords

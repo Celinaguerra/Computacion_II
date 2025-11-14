@@ -2,7 +2,10 @@ from playwright.sync_api import Page
 import json
 
 def analyze_performance(page: Page) -> dict:
-
+    """
+    Analiza el rendimiento de la página ya cargada
+    usando las APIs de performance del navegador.
+    """
     print("Worker: Analizando performance...")
     try:
         timing_json = page.evaluate("() => JSON.stringify(window.performance.timing.toJSON())")

@@ -2,6 +2,9 @@ import aiohttp
 import asyncio
 
 async def fetch_page(session: aiohttp.ClientSession, url: str) -> (str, str): # type: ignore
+    """
+    Descarga el contenido HTML de una URL de forma asíncrona.
+    """
     # Timeout
     timeout = aiohttp.ClientTimeout(total=30.0)
     

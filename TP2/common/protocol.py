@@ -3,6 +3,9 @@ import socket
 from .serialization import serialize, deserialize
 
 async def async_send_msg(writer: asyncio.StreamWriter, data: dict):
+    """
+    Serializa y envía datos usando el protocolo.
+    """
     msg_bytes = serialize(data)
     msg_len = len(msg_bytes)
     
@@ -13,6 +16,9 @@ async def async_send_msg(writer: asyncio.StreamWriter, data: dict):
     await writer.drain()
 
 async def async_recv_msg(reader: asyncio.StreamReader) -> dict:
+    """
+    Recibe datos usando el protocolo y deserializa.
+    """
     try:
         # Leer 4 bytes de longitud
         len_bytes = await reader.readexactly(4)
@@ -27,6 +33,9 @@ async def async_recv_msg(reader: asyncio.StreamReader) -> dict:
 
 
 def sync_send_msg(sock: socket.socket, data: dict):
+    """
+    Serializa y envía datos usando el protocolo.
+    """
     msg_bytes = serialize(data)
     msg_len = len(msg_bytes)
     
@@ -34,6 +43,9 @@ def sync_send_msg(sock: socket.socket, data: dict):
     sock.sendall(msg_len.to_bytes(4, 'big') + msg_bytes)
 
 def _recv_all(sock: socket.socket, n: int) -> bytes:
+    """
+    Helper síncrono para recibir exactamente N bytes de un socket.
+    """
     chunks = []
     bytes_recd = 0
     while bytes_recd < n:
@@ -45,6 +57,9 @@ def _recv_all(sock: socket.socket, n: int) -> bytes:
     return b''.join(chunks)
 
 def sync_recv_msg(sock: socket.socket) -> dict:
+    """
+    Recibe datos usando el protocolo y deserializa.
+    """
     try:
         # Leer 4 bytes de longitud
         len_bytes = _recv_all(sock, 4)

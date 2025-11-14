@@ -17,6 +17,10 @@ SERVER_B_HOST = '127.0.0.1'
 SERVER_B_PORT = 9001
 
 async def contact_server_b(payload: dict) -> dict:
+    """
+    Se conecta al Servidor B, envía la solicitud
+    y espera la respuesta.
+    """
     print("Servidor A: Contactando al Servidor B...")
     try:
         reader, writer = await asyncio.wait_for(
@@ -43,6 +47,9 @@ async def contact_server_b(payload: dict) -> dict:
 
 
 async def handle_scrape(request: web.Request) -> web.Response:
+    """
+    Handler principal de aiohttp para la ruta /scrape
+    """
     url = request.query.get('url')
     if not url:
         return web.json_response(
@@ -98,10 +105,12 @@ async def handle_scrape(request: web.Request) -> web.Response:
 
 
 async def setup_http_session(app: web.Application):
+    """Inicializa la sesión de aiohttp."""
     print("Servidor A: Creando ClientSession de aiohttp...")
     app['http_session'] = aiohttp.ClientSession()
 
 async def cleanup_http_session(app: web.Application):
+    """Cierra la sesión de aiohttp."""
     print("\nServidor A: Cerrando ClientSession...")
     await app['http_session'].close()
 

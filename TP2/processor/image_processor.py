@@ -5,7 +5,11 @@ from io import BytesIO
 from urllib.parse import urljoin
 
 def process_thumbnails(base_url: str, image_urls: list) -> list:
-
+    """
+    Descarga las imágenes principales (máximo 5),
+    genera thumbnails 128x128 y los devuelve como
+    lista de strings base64 (PNG).
+    """
     print(f"Worker: Procesando {len(image_urls)} thumbnails...")
     thumbnails_b64 = []
     

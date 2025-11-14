@@ -1,6 +1,9 @@
 import json
 
 def serialize(data: dict) -> bytes:
+    """
+    Serializa un diccionario a bytes (JSON con encoding UTF-8).
+    """
     try:
         return json.dumps(data).encode('utf-8')
     except TypeError as e:
@@ -9,6 +12,9 @@ def serialize(data: dict) -> bytes:
         return json.dumps({"error": f"Datos no serializables: {e}"}).encode('utf-8')
 
 def deserialize(data_bytes: bytes) -> dict:
+    """
+    Deserializa bytes (JSON con encoding UTF-8) a un diccionario.
+    """
     try:
         return json.loads(data_bytes.decode('utf-8'))
     except json.JSONDecodeError:
