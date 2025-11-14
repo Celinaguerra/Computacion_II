@@ -1,0 +1,10 @@
+aiohttp
+beautifulsoup4
+lxml
+Pillow
+playwright
+aiofiles
+pytest
+
+# Dependencia para parseo de IP en argparse
+ipaddress
